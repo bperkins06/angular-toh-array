@@ -1,0 +1,32 @@
+<div class="container">
+<div>
+<h2>Available Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of available_heroes"
+    [class.selected]="hero === selectedHero"
+    (click)="addHero(hero)">
+    {{hero.name}}
+  </li>
+</ul>
+</div>
+<div>
+<h2>Selected Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let shero of selected_heroes"
+  (click)="removeHero(shero)">
+  {{shero.name}}
+  </li>
+</ul>
+</div>
+</div>
+
+<div *ngIf="selectedHero">
+
+  <h2>{{selectedHero.name | uppercase}} Details</h2>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedHero.name" placeholder="name">
+    </label>
+  </div>
+
+</div>
