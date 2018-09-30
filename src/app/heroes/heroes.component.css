@@ -2,11 +2,12 @@
   display: flex;
   justify-content: space-evenly;
 }
-/* HeroesComponent's private CSS styles */
-.selected {
-  background-color: #CFD8DC !important;
-  color: white;
+.fixed {
+  width: 300px;
+  max-width: 300px;
 }
+
+/* HeroesComponent's private CSS styles */
 .heroes {
   margin: 0 0 2em 0;
   list-style-type: none;

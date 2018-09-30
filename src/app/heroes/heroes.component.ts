@@ -12,6 +12,7 @@ export class HeroesComponent implements OnInit {
 
   available_heroes = HEROES;
   selected_heroes: Hero[]=[];
+  selected_heroes_ms: string[]=[];
   selectedHero: Hero;
 
   constructor() { }

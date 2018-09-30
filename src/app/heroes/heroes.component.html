@@ -1,9 +1,23 @@
 <div class="container">
+<div class="fixed">
+  <h2>Autocomplete Multiselect</h2>
+  <ng-select
+    class = "custom"
+    [items]="available_heroes"
+    [multiple]="true"
+    bindLabel="name"
+    [closeOnSelect]="false"
+    bindValue="id"
+    [(ngModel)]="selected_heroes_ms">
+    <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+      <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected"/> {{item.name}}
+    </ng-template>
+  </ng-select>
+</div>
 <div>
 <h2>Available Heroes</h2>
 <ul class="heroes">
   <li *ngFor="let hero of available_heroes"
-    [class.selected]="hero === selectedHero"
     (click)="addHero(hero)">
     {{hero.name}}
   </li>
@@ -18,15 +32,4 @@
   </li>
 </ul>
 </div>
-</div>
-
-<div *ngIf="selectedHero">
-
-  <h2>{{selectedHero.name | uppercase}} Details</h2>
-  <div>
-    <label>name:
-      <input [(ngModel)]="selectedHero.name" placeholder="name">
-    </label>
-  </div>
-
 </div>
